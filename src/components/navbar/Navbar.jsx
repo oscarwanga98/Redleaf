@@ -1,7 +1,8 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
-
+import style from './navbar.module.css'
+ 
 const links = [
   {
     id: 1,
@@ -37,15 +38,15 @@ const links = [
 
 export const Navbar = () => {
   return (
-    <div>
-      <Link href='/'>Redleaf</Link>
-      <div>
+    <div className={style.container}>
+      <Link href='/' className={style.logo}>Red Leaf</Link>
+      <div className={style.links}>
         {links.map(link=>(
-          <Link key={link.id} href={link.url}>{link.title}</Link>
+          <Link key={link.id} href={link.url} className={style.link}>{link.title}</Link>
         ))}
         <button onClick={()=>{
           console.log('Logged out')
-        }}>Logout</button>
+        }} className={style.logout}>Logout</button>
       </div>
     </div>
   )
